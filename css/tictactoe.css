@@ -1,0 +1,14 @@
+.btn-tictactoe {
+    height:200px;
+}
+.col-tictactoe {
+    border-right : 1px solid;
+    border-bottom : 1px solid;
+    padding : 12px 12px; 
+}
+.col-tictactoe.bottom {
+    border-bottom : 1px solid white;
+}
+.col-tictactoe.right {
+    border-right : 1px solid white;
+}
