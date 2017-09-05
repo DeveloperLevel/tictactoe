@@ -74,7 +74,82 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
     <script>if((typeof $().modal != 'function')) { document.write('<script src="js/vendor/bootstrap.min.js"><\/script>'); }</script>
     <script>
-        
+        var clickCount = 0;
+        $('div.col-tictactoe button').click(function (event) {
+            console.log(this, event);
+            //if($(this).html() != "") { return; }
+            if(!$(this).hasClass('btn-default')) { return; }
+            if(clickCount % 2 == 0) {
+                $(this).removeClass('btn-default').addClass('btn-success').html("X");
+                console.log("Player one");
+            } else {
+                $(this).removeClass('btn-default').addClass('btn-danger').html("O");
+                console.log("Player two");
+            }
+            if(clickCount >= 4) {
+                var winner = getWinner();
+                if(winner) {
+                    alert(winner+" won!");
+                    $('div.col-tictactoe')
+                        .removeClass('btn-success btn-danger')
+                        .addClass('btn-default')
+                        .html("");
+                }
+            }
+            clickCount++;
+        });
+        function getWinner() {
+            var btns = $('div.col-tictactoe button');
+            var wins = [
+                [0, 1, 2],
+                [0, 4, 8],
+                [0, 3, 6],
+
+                [0, 1, 2],
+                [1, 4, 7],
+
+                [0, 1, 2],
+                [2, 5, 8],
+                [2, 4, 6],
+
+                [0, 3, 6],
+                [3, 4, 5],
+
+                [0, 4, 8],
+                [1, 4, 7], 
+                [2, 4, 6],
+                [3, 4, 5],
+
+                [2, 5, 8],
+                [3, 4, 5],
+
+                [0, 3, 6],
+                [2, 4, 6],
+                [6, 7, 8],
+
+                [6, 7, 8],
+                [1, 4, 7],
+
+                [6, 7, 8],
+                [0, 4, 8],
+                [2, 5, 8]
+            ];
+
+            // You can't use the forEach here, since it uses a function
+            // and we need to return the value found. 
+            // Using another loop, get this function to work properly.
+                console.log(btns[i[0]], btns[i[1]], btns[i[2]]);
+                if($(btns[i[0]]).html() != "" 
+                    && $(btns[i[0]]).html() == $(btns[i[1]]).html() 
+                    && $(btns[i[0]]).html() == $(btns[i[2]]).html()
+                ) { 
+                    return $(btns[i[0]]).html();
+                }
+
+            return false;
+            
+            //if(btn[0].hasClass('btn-success') && btn[1].hasClass('btn-success') && btn[2].hasClass('btn-success')) { return "X"; }
+        }
     </script>
   </body>
 </html>
