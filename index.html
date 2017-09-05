@@ -27,7 +27,10 @@
         <h1>Tic Tac Toe! <small>Welcome to the Developer Level Tic Tac Toe Challenge!</small></h1>
         <p class="lead">You will be using this rough page layout to build a functional Tic Tac Toe game entirely in javascript. You don't have to keep any of this page, but since the assignment focusses on the javascript implementation, the layout has been created for you so you can focus on the functionality.</p>
       </div>
-
+      <div class="alert alert-success" id="winText" style="display:none;">
+          <span></span> wins this game!
+          <button class="btn btn-success" id="btnReset">Reset</button>
+      </div>
       <!-- Tic Tac Toe Board -->
       <div class="row">
         <div class="col col-tictactoe">
@@ -75,80 +78,40 @@
     <script>if((typeof $().modal != 'function')) { document.write('<script src="js/vendor/bootstrap.min.js"><\/script>'); }</script>
     <script>
         var clickCount = 0;
+        $('#btnReset').click(function () {
+            $('div.col-tictactoe button').removeClass('btn-success btn-danger disabled').addClass('btn-default').html("");
+            $("#winText").hide();
+            clickCount = 0;
+        });
         $('div.col-tictactoe button').click(function (event) {
-            console.log(this, event);
-            //if($(this).html() != "") { return; }
-            if(!$(this).hasClass('btn-default')) { return; }
+            if(!$(this).hasClass('btn-default') || $(this).hasClass('disabled')) { return; }
             if(clickCount % 2 == 0) {
                 $(this).removeClass('btn-default').addClass('btn-success').html("X");
-                console.log("Player one");
             } else {
                 $(this).removeClass('btn-default').addClass('btn-danger').html("O");
-                console.log("Player two");
             }
             if(clickCount >= 4) {
                 var winner = getWinner();
                 if(winner) {
-                    alert(winner+" won!");
-                    $('div.col-tictactoe')
-                        .removeClass('btn-success btn-danger')
-                        .addClass('btn-default')
-                        .html("");
+                    $('div.col-tictactoe button').addClass('disabled');
+                    $('#winText span').html(winner);
+                    $('#winText').show();
                 }
             }
             clickCount++;
         });
         function getWinner() {
             var btns = $('div.col-tictactoe button');
-            var wins = [
-                [0, 1, 2],
-                [0, 4, 8],
-                [0, 3, 6],
-
-                [0, 1, 2],
-                [1, 4, 7],
-
-                [0, 1, 2],
-                [2, 5, 8],
-                [2, 4, 6],
-
-                [0, 3, 6],
-                [3, 4, 5],
-
-                [0, 4, 8],
-                [1, 4, 7], 
-                [2, 4, 6],
-                [3, 4, 5],
-
-                [2, 5, 8],
-                [3, 4, 5],
-
-                [0, 3, 6],
-                [2, 4, 6],
-                [6, 7, 8],
-
-                [6, 7, 8],
-                [1, 4, 7],
-
-                [6, 7, 8],
-                [0, 4, 8],
-                [2, 5, 8]
-            ];
-
-            // You can't use the forEach here, since it uses a function
-            // and we need to return the value found. 
-            // Using another loop, get this function to work properly.
-                console.log(btns[i[0]], btns[i[1]], btns[i[2]]);
-                if($(btns[i[0]]).html() != "" 
-                    && $(btns[i[0]]).html() == $(btns[i[1]]).html() 
-                    && $(btns[i[0]]).html() == $(btns[i[2]]).html()
-                ) { 
-                    return $(btns[i[0]]).html();
-                }
-
+            for(var i = 0; i < 6; i++) {
+                if(i == 4) { i = 6; }
+                var me = btns[i].innerHTML;
+                if(me == "") { continue; }
+                if(i == 0 && me == btns[i+4].innerHTML && me == btns[i+8].innerHTML) { console.log("1"); return me; }
+                if(i % 3 == 0 && (me == btns[i+1].innerHTML && me == btns[i+2].innerHTML)) { console.log("2"); return me; }
+                if(i <= 3 && me == btns[i+3].innerHTML && me == btns[i+6].innerHTML) { console.log("3"); return me; }
+                if(i % 3 == 2 && me == btns[i+2].innerHTML && me == btns[i+4].innerHTML) { console.log("4"); return me; }
+            }
             return false;
-            
-            //if(btn[0].hasClass('btn-success') && btn[1].hasClass('btn-success') && btn[2].hasClass('btn-success')) { return "X"; }
         }
     </script>
   </body>
