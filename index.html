@@ -100,23 +100,34 @@
         });
         function getWinner() {
             var btns = $('div.col-tictactoe button');
+            // [
+                // 0 = btn 1,
+                // 1 = btn 2,
+                // 2 = btn 3,
+                // 3 = btn 4,
+                // 4 = btn 5,
+                // 5 = btn 6,
+                // 6 = btn 7,
+                // 7 = btn 8,
+                // 8 = btn 9
+            //] btns[2]
             var wins = [
-                [0, 1, 2],
-                [0, 4, 8],
-                [0, 3, 6],
+                [0, 1, 2], //0
+                [0, 4, 8], //1
+                [0, 3, 6], //2
 
-                [0, 1, 2],
-                [1, 4, 7],
+                [0, 1, 2], //3
+                [1, 4, 7], //4
 
-                [0, 1, 2],
-                [2, 5, 8],
-                [2, 4, 6],
+                [0, 1, 2], //5
+                [2, 5, 8], //6
+                [2, 4, 6], //7
 
-                [0, 3, 6],
-                [3, 4, 5],
+                [0, 3, 6], //8
+                [3, 4, 5], //9
 
-                [0, 4, 8],
-                [1, 4, 7], 
+                [0, 4, 8], //10
+                [1, 4, 7], //11
                 [2, 4, 6],
                 [3, 4, 5],
 
@@ -138,14 +149,19 @@
             // You can't use the forEach here, since it uses a function
             // and we need to return the value found. 
             // Using another loop, get this function to work properly.
-                console.log(btns[i[0]], btns[i[1]], btns[i[2]]);
-                if($(btns[i[0]]).html() != "" 
-                    && $(btns[i[0]]).html() == $(btns[i[1]]).html() 
-                    && $(btns[i[0]]).html() == $(btns[i[2]]).html()
-                ) { 
-                    return $(btns[i[0]]).html();
-                }
 
+            for (var i = 0; i < wins.length; i++) {
+                var set = wins[i];
+                // set = [0, 1, 2]
+                var offsetForButton1 = set[0];
+                var btn1 = btns[offsetForButton1];
+
+                var offsetForButton2 = set[1];
+                var btn1 = btns[offsetForButton2];
+                
+                var offsetForButton3 = set[2];
+                var btn1 = btns[offsetForButton3];
+            }
             return false;
             
             //if(btn[0].hasClass('btn-success') && btn[1].hasClass('btn-success') && btn[2].hasClass('btn-success')) { return "X"; }
