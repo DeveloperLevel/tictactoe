@@ -90,7 +90,7 @@
                 var winner = getWinner();
                 if(winner) {
                     alert(winner+" won!");
-                    $('div.col-tictactoe')
+                    $('div.col-tictactoe button')
                         .removeClass('btn-success btn-danger')
                         .addClass('btn-default')
                         .html("");
@@ -161,6 +161,13 @@
 
                 var offsetForButton3 = set[2];
                 var btn3 = btns[offsetForButton3];
+
+                if($(btn1).hasClass('btn-default')) { continue; }
+
+                var me = $(btn1).html();
+                if(me != $(btn2).html()) { continue; }
+                if(me != $(btn3).html()) { continue; }
+                return me;
             }
             return false;
             
