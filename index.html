@@ -1,7 +1,7 @@
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -11,145 +11,272 @@
     <title>Developer Level Project: Tic Tac Toe</title>
 
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
+        crossorigin="anonymous">
     <link href="css/bootstrap.theme.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="css/tictactoe.css" rel="stylesheet">
-  </head>
 
-  <body>
+</head>
+
+<body style="background-color:black;">
 
     <div class="container">
 
-      <!-- Jumbotron -->
-      <div class="jumbotron top">
-        <h1>Tic Tac Toe! <small>Welcome to the Developer Level Tic Tac Toe Challenge!</small></h1>
-        <p class="lead">You will be using this rough page layout to build a functional Tic Tac Toe game entirely in javascript. You don't have to keep any of this page, but since the assignment focusses on the javascript implementation, the layout has been created for you so you can focus on the functionality.</p>
-      </div>
+        <!-- Jumbotron -->
+        <div class="jumbotron top">
+            <h1>Tic Tac Toe! <small>Welcome to the Developer Level Tic Tac Toe Challenge!</small></h1>
+            <p class="lead" style="font-style: italic; color: black;">This is where we build a cool tic-tac-toe board to learn Java!</p>
+        </div>
+        <!-- Bootstrap menu stuff-->
+        <!--<nav class="navbar navbar-fixed-left navbar-minimal animate" style="background-color:dimgrey">
+         <div class="navbar-toggler animate">
+             <span class="menu-icon"></span>
+         </div>
+         <ul class="navbar-menu animate">
+                <li>
+                    <a href="http://paladinarcher.com/v1/" class="animate">
+                        <span class="desc animate ; glyphicon glyphicon-user"> Who We Are </span>                       
+                    </a>
+                </li>
+                <li>
+                    <a href="http://developerlevel.com/" class="animate">
+                        <span class="desc animate; glyphicon glyphicon-info-sign"> What We Say </span>
+                    </a>
+                </li>
+        <ul>
+    </nav>-->
+        <!-- /Bootstrap Menu Stuff -->
+        <!-- Tic Tac Toe Board -->
+        <div class="row">
+            <div class="col col-tictactoe">
+                <button type="button" class="btn btn-default btn-block btn-tictactoe"></button>
+            </div>
+            <div class="col col-tictactoe">
+                <button type="button" class="btn btn-default btn-block btn-tictactoe"></button>
+            </div>
+            <div class="col col-tictactoe right">
+                <button type="button" class="btn btn-default btn-block btn-tictactoe"></button>
+            </div>
+            <div class="w-100"></div>
+            <div class="col col-tictactoe">
+                <button type="button" class="btn btn-default btn-block btn-tictactoe"></button>
+            </div>
+            <div class="col col-tictactoe">
+                <button type="button" class="btn btn-default btn-block btn-tictactoe"></button>
+            </div>
+            <div class="col col-tictactoe right">
+                <button type="button" class="btn btn-default btn-block btn-tictactoe"></button>
+            </div>
+            <div class="w-100"></div>
+            <div class="col col-tictactoe bottom">
+                <button type="button" class="btn btn-default btn-block btn-tictactoe"></button>
+            </div>
+            <div class="col col-tictactoe bottom">
+                <button type="button" class="btn btn-default btn-block btn-tictactoe"></button>
+            </div>
+            <div class="col col-tictactoe bottom right">
+                <button type="button" class="btn btn-default btn-block btn-tictactoe"></button>
+            </div>
+        </div>
+        <button type="button" class="btn btn-info btn span3" id="scoreReset">See Score/Reset</button>
 
-      <!-- Tic Tac Toe Board -->
-      <div class="row">
-        <div class="col col-tictactoe">
-            <button type="button" class="btn btn-default btn-block btn-tictactoe"></button>
-        </div>
-        <div class="col col-tictactoe">
-            <button type="button" class="btn btn-default btn-block btn-tictactoe"></button>
-        </div>
-        <div class="col col-tictactoe right">
-            <button type="button" class="btn btn-default btn-block btn-tictactoe"></button>
-        </div>
-        <div class="w-100"></div>
-        <div class="col col-tictactoe">
-            <button type="button" class="btn btn-default btn-block btn-tictactoe"></button>
-        </div>
-        <div class="col col-tictactoe">
-            <button type="button" class="btn btn-default btn-block btn-tictactoe"></button>
-        </div>
-        <div class="col col-tictactoe right">
-            <button type="button" class="btn btn-default btn-block btn-tictactoe"></button>
-        </div>
-        <div class="w-100"></div>
-        <div class="col col-tictactoe bottom">
-            <button type="button" class="btn btn-default btn-block btn-tictactoe"></button>
-        </div>
-        <div class="col col-tictactoe bottom">
-            <button type="button" class="btn btn-default btn-block btn-tictactoe"></button>
-        </div>
-        <div class="col col-tictactoe bottom right">
-            <button type="button" class="btn btn-default btn-block btn-tictactoe"></button>
-        </div>
-      </div>
+        <!-- <div class="btn-group" style="color:dimgrey;">
+        <button class="btn btn-danger" id="btnReset">Reset</button>
+        <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li><a href="https://kimcartoon.me/Cartoon/Rick-and-Morty-Season-3">Or watch Rick and Morty.</a></li>
+        </ul>
+      </div> -->
+    </div>
+    <!-- Score Modal popup -->
+    <div id="winModal" class="modal fade">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Tic Tac Toe Winner</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+                </div>
+                <div class="modal-body" id="winText"><span></span> wins the game!!
 
-    </div> <!-- /container -->
-
+                </div>
+                <div class="modal-footer">
+                    <pre id="x_win"><strong></strong><pre> won </pre><b>0</b> time(s)</pre>
+                    <pre id="o_win"><strong></strong><pre> won </pre><b>0</b> time(s)</pre>
+                    <!-- Win Counter -->
+                    <!-- <span class="win_text">O won </span><span id="o_win" class="win_times">0</span><span > time(s)</span>        
+            <span class="win_text">X won </span><strong id="x_win" class="win_times">0</strong><span > time(s)</span> -->
+                    <!-- /Win Counter-->
+                    <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+                    <button type="button" class="btn btn-danger" id="btnReset">Reset</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Score Modal popup -->
+    <!-- Name Modal PopUp-->
+    <div id="nameModal" class="modal fade">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Tic Tac Toe</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body" id="winText"><span></span>
+                    <input type="text" class="form-control" id="1name" placeholder="Player 1 enter your name">
+                    <input type="text" class="form-control" id="2name" placeholder="Player 2 enter your name">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success btn-block" id="btnAccept" data-dismiss="modal"><span class="glyphicon glyphicon-off"></span>Let's do this</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /container -->
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.2.1.min.js"><\/script>')</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-    <script>window.Popper || document.write('<script src="js/vendor/popper.min.js"><\/script>')</script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
-    <script>if((typeof $().modal != 'function')) { document.write('<script src="js/vendor/bootstrap.min.js"><\/script>'); }</script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+    <script>
+        window.jQuery || document.write('<script src="js/vendor/jquery-3.2.1.min.js"><\/script>')
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+        crossorigin="anonymous"></script>
+    <script>
+        window.Popper || document.write('<script src="js/vendor/popper.min.js"><\/script>')
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
+        crossorigin="anonymous"></script>
+    <script>
+        if ((typeof $().modal != 'function')) { document.write('<script src="js/vendor/bootstrap.min.js"><\/script>'); }
+    </script>
+    <p id="1name"></p>
+    <p id="2name"></p>
     <script>
         var clickCount = 0;
+        var o_win = 0;
+        var x_win = 0;
+        $('#scoreReset').click(function () {
+            $("#winModal").modal('show');
+            $("#winText").hide();
+        });
+        $(window).on('load', function () {
+            $('#nameModal').modal('show');
+            $('nameModal').modal({backdrop: "static"});
+            
+        });
+              
+        $('#btnReset').click(function () {
+            $('div.col-tictactoe button').removeClass('btn-primary btn-warning disabled').addClass('btn-default').html("");
+            $("#winText").hide();
+            $("#winModal").modal('hide');
+            clickCount = 0;
+
+        });
+
+        /*function playerName() {
+             var player = prompt("Player 1 please enter your name", "Player 1");
+             if (player != null) {
+                 document.getElementById("player1").innerHTML = ('');
+             }
+         } */
+        /*window.onload = playerName;*/
+
         $('div.col-tictactoe button').click(function (event) {
             console.log(this, event);
             //if($(this).html() != "") { return; }
-            if(!$(this).hasClass('btn-default')) { return; }
-            if(clickCount % 2 == 0) {
-                $(this).removeClass('btn-default').addClass('btn-success').html("X");
-                console.log("Player one");
+            if (!$(this).hasClass('btn-default') || $(this).hasClass('disabled')) { return; }
+            if (clickCount % 2 == 0) {
+                $(this).removeClass('btn-default').addClass('btn-primary').html("X");
             } else {
-                $(this).removeClass('btn-default').addClass('btn-danger').html("O");
-                console.log("Player two");
+                $(this).removeClass('btn-default').addClass('btn-warning').html("O");
             }
-            if(clickCount >= 4) {
+            if (clickCount >= 4) {
                 var winner = getWinner();
-                if(winner) {
-                    alert(winner+" won!");
-                    $('div.col-tictactoe')
-                        .removeClass('btn-success btn-danger')
-                        .addClass('btn-default')
-                        .html("");
+                if (winner) {
+                    $('div.col-tictactoe button').addClass('disabled');
+                    $('#winText span').html(winner);
+                    $('#winText').show();
+                    $('#winModal').modal('show');
                 }
+
+                if (winner == 'X') {
+                    x_win++;
+                    $('#x_win b').html(x_win);
+                    $('#x_win strong').html($(innerHTML='#1name'));
+                    $('#o_win strong').html($(innerHTML='#2name'));
+                }
+                else if (winner == 'O') {
+                    o_win++;
+                    $('#o_win b').html(o_win);
+                    $('#o_win strong').html($('#2name'));  
+                    $('#x_win strong').html($('#1name'));
+
+                           }
+
             }
             clickCount++;
+
+            if (clickCount == 9 && winner == 0) {
+                $('#winText span').html('No one');
+                $('#winText').show();
+                $('#winModal').modal('show');
+            }
+
+
         });
+       /* function playerName() {
+            var player1, player2;
+            player1 = (document.getElementById("1name").innerHTML);
+            player2 = (document.getElementById("2name").innerHTML);
+            if (player1 == string) {
+                player1 == ('#1name');
+                }
+                else{
+                    placeholder = "Not a valid entry";
+                    
+                }
+            } */
         function getWinner() {
             var btns = $('div.col-tictactoe button');
-            var wins = [
-                [0, 1, 2],
-                [0, 4, 8],
-                [0, 3, 6],
-
-                [0, 1, 2],
-                [1, 4, 7],
-
-                [0, 1, 2],
-                [2, 5, 8],
-                [2, 4, 6],
-
-                [0, 3, 6],
-                [3, 4, 5],
-
-                [0, 4, 8],
-                [1, 4, 7], 
-                [2, 4, 6],
-                [3, 4, 5],
-
-                [2, 5, 8],
-                [3, 4, 5],
-
-                [0, 3, 6],
-                [2, 4, 6],
-                [6, 7, 8],
-
-                [6, 7, 8],
-                [1, 4, 7],
-
-                [6, 7, 8],
-                [0, 4, 8],
-                [2, 5, 8]
-            ];
-
-            // You can't use the forEach here, since it uses a function
-            // and we need to return the value found. 
-            // Using another loop, get this function to work properly.
-                console.log(btns[i[0]], btns[i[1]], btns[i[2]]);
-                if($(btns[i[0]]).html() != "" 
-                    && $(btns[i[0]]).html() == $(btns[i[1]]).html() 
-                    && $(btns[i[0]]).html() == $(btns[i[2]]).html()
-                ) { 
-                    return $(btns[i[0]]).html();
-                }
-
+            for (var i = 0; i < 6; i++) {
+                if (i == 4) { i = 6; }
+                var me = btns[i].innerHTML;
+                if (me == "") { continue; }
+                if (i == 0 && me == btns[i + 4].innerHTML && me == btns[i + 8].innerHTML) { console.log("1"); return me; }
+                if (i % 3 == 0 && (me == btns[i + 1].innerHTML && me == btns[i + 2].innerHTML)) { console.log("2"); return me; }
+                if (i <= 3 && me == btns[i + 3].innerHTML && me == btns[i + 6].innerHTML) { console.log("3"); return me; }
+                if (i % 3 == 2 && me == btns[i + 2].innerHTML && me == btns[i + 4].innerHTML) { console.log("4"); return me; }
+            }
             return false;
-            
-            //if(btn[0].hasClass('btn-success') && btn[1].hasClass('btn-success') && btn[2].hasClass('btn-success')) { return "X"; }
+
+
         }
+        /*Bootstrap menu stuff   
+    $(function () {
+    if (window.location == window.parent.location) {
+    }  
+    $('.navbar-toggler').on('click', function(event) {
+		event.preventDefault();
+		$(this).closest('.navbar-minimal').toggleClass('open');
+	})
+});*/
     </script>
-  </body>
-</html>
+</body>
+<footer>
+    <details>
+        <summary style="color:dimgray;"> Made By:  Craig B. Sept. 2017</summary>
+        <p> -- For use in learning Javascript.</p>
+        <p> ---Anyone who copies this is probably out of other options. </p>
+    </details>
+</footer>
+</html
