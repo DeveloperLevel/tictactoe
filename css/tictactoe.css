@@ -10,12 +10,24 @@
     overflow-y: auto;
     overflow-x: auto;
     width: auto;
+    max-height: calc(100vh - 212px);
 }
 .modal-footer {
     overflow-y: auto;
     overflow-x: auot;
     width: auto;
 }
+.nameModal{
+    width: auto;
+}
+.nameModal.body{
+    background-color: rgba(251, 246, 246, 0.97);
+    overflow-x: auto;
+}
+.btn-default{
+    color: white;
+}
+
 .btn-tictactoe {
     height:200px;
    }
@@ -74,7 +86,7 @@
 
 .navbar-minimal.open > .navbar-toggler,
 .navbar-minimal > .navbar-toggler:hover {
-    background-color:red);
+    background-color:red;
 }
 
 .navbar-minimal > .navbar-toggler > span {

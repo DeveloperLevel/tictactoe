@@ -7,7 +7,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico">
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>Developer Level Project: Tic Tac Toe</title>
 
     <!-- Bootstrap core CSS -->
@@ -26,7 +27,7 @@
 
         <!-- Jumbotron -->
         <div class="jumbotron top">
-            <h1>Tic Tac Toe! <small>Welcome to the Developer Level Tic Tac Toe Challenge!</small></h1>
+            <h1>Tic Tac Toe! <small>Welcome to the <a hre="#" data-toggle="tooltip" title="http://developerlevel.com/">Developer Level</a> Tic Tac Toe Challenge!</small></h1>
             <p class="lead" style="font-style: italic; color: black;">This is where we build a cool tic-tac-toe board to learn Java!</p>
         </div>
         <!-- Bootstrap menu stuff-->
@@ -82,6 +83,7 @@
         </div>
         <button type="button" class="btn btn-info btn span3" id="scoreReset">See Score/Reset</button>
 
+
         <!-- <div class="btn-group" style="color:dimgrey;">
         <button class="btn btn-danger" id="btnReset">Reset</button>
         <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
@@ -93,7 +95,7 @@
       </div> -->
     </div>
     <!-- Score Modal popup -->
-    <div id="winModal" class="modal fade">
+    <div id="winModal" class="modal fade" data-backdrop="static">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -120,7 +122,7 @@
     </div>
     <!-- /Score Modal popup -->
     <!-- Name Modal PopUp-->
-    <div id="nameModal" class="modal fade">
+    <div id="nameModal" data-spy="scroll" class="modal fade" data-backdrop="static">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -132,6 +134,121 @@
                 <div class="modal-body" id="winText"><span></span>
                     <input type="text" class="form-control" id="1name" placeholder="Player 1 enter your name">
                     <input type="text" class="form-control" id="2name" placeholder="Player 2 enter your name">
+                    <!-- Pick your team -->
+                    <ul class="btn-group-vertical btn-group-lg"> Or you can pick your team.
+                        <ul class=" btn-group btn-group-md"> NFC South
+                            <button type="button" class="teamBtn btn-md" id="carolina" content="Carolina Panthers" data-dismiss="modal">
+                                            <img src="http://s1.ticketm.net/tm/en-us/dam/a/1b6/0583a032-fb89-4026-b655-c8e70209d1b6_206481_CUSTOM.jpg" height="100" width="100"/>
+                                    </button>
+                            <button type="button" class="teamBtn btn-md" id="tampaBay" data-dismiss="modal">
+                                            <img src="https://goodlogo.com/images/logos/tampa_bay_buccaneers_logo_4014.png" height="100" width="100"/>
+                                    </button>
+                            <button type="button" class="teamBtn btn-md" id="newOrleans" data-dismiss="modal">
+                                            <img src="https://botw-pd.s3.amazonaws.com/styles/logo-thumbnail/s3/0025/3392/brand.gif?itok=f30AF4XF" height="100" width="100"/>
+                                    </button>
+                            <button type="button" class="teamBtn btn-md" id="atlanta" data-dismiss="modal">
+                                            <img src="http://rs1130.pbsrc.com/albums/m525/JohnnyUnitas19/Edited%20Sports%20Photos/AtlantaFalcons-3D-Logo.png?w=280&h=210&fit=crop" height="100" width="100"/>
+                                    </button>
+                        </ul>
+                        <ul class=" btn-group btn-group-md"> AFC East
+                            <button type="button" class="teamBtn btn-md" id="newEngland" data-dismiss="modal">
+                                            <img src="http://cdn.bleacherreport.net/images/team_logos/328x328/new_england_patriots.png" height="100" width="100"/>
+                                    </button>
+                            <button type="button" class="teamBtn btn-md" id="newYorkJets" data-dismiss="modal">
+                                            <img src="http://nflshop.frgimages.com/FFImage/thumb.aspx?i=/productImages/_1702000/ff_1702418_xl.jpg&w=340" height="100" width="100"/>
+                                    </button>
+                            <button type="button" class="teamBtn btn-md" id="miami" data-dismiss="modal">
+                                            <img src="http://cdn.bleacherreport.net/images/team_logos/328x328/miami_dolphins.png" height="100" width="100"/>
+                                    </button>
+                            <button type="button" class="teamBtn btn-md" id="buffalo" data-dismiss="modal">
+                                            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/7/77/Buffalo_Bills_logo.svg/1280px-Buffalo_Bills_logo.svg.png" height="100" width="100"/>
+                                    </button>
+                        </ul>
+                        <ul class=" btn-group btn-group-md"> NFC East
+                            <button type="button" class="teamBtn btn-md" id="washington" data-dismiss="modal">
+                                            <img src="https://i.pinimg.com/236x/d0/4f/17/d04f17135157115ec30ee7bbc9357323--football-team-logos-washington-redskins.jpg" height="100" width="100"/>
+                                    </button>
+                            <button type="button" class="teamBtn btn-md" id="philadelphia" data-dismiss="modal">
+                                            <img src="https://cdn.fansided.com/wp-content/blogs.dir/190/files/2014/01/philadelphia_eagles_logo_4008.png" height="100" width="100"/>
+                                    </button>
+                            <button type="button" class="teamBtn btn-md" id="dallas" data-dismiss="modal">
+                                            <img src="https://i.pinimg.com/736x/2a/f5/53/2af5533d372a0c38f26abd4c565e240f--dallas-cowboys-svg-football-americano.jpg" height="100" width="100"/>
+                                    </button>
+                            <button type="button" class="teamBtn btn-md" id="newYorkGiants" data-dismiss="modal">
+                                            <img src="http://content.sportslogos.net/logos/7/166/full/919.gif" height="100" width="100"/>
+                                    </button>
+                        </ul>
+                        <ul class=" btn-group btn-group-md"> AFC North
+                            <button type="button" class="teamBtn btn-md" id="baltimore" data-dismiss="modal">
+                                            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/1/16/Baltimore_Ravens_logo.svg/1280px-Baltimore_Ravens_logo.svg.png" height="100" width="100"/>
+                                    </button>
+                            <button type="button" class="teamBtn btn-md" id="pittsburgh" data-dismiss="modal">
+                                            <img src="http://prod.static.steelers.clubs.nfl.com/nfl-assets/img/gbl-ico-team/PIT/logos/home/large.png" height="100" width="100"/>
+                                    </button>
+                            <button type="button" class="teamBtn btn-md" id="cleveland" data-dismiss="modal">
+                                            <img src="https://usatftw.files.wordpress.com/2015/02/2ioheczrkmc2ibc42c9r.gif?w=660&h=510" height="100" width="100"/>
+                                    </button>
+                            <button type="button" class="teamBtn btn-md" id="cincinnati" data-dismiss="modal">
+                                            <img src="http://prod.static.bengals.clubs.nfl.com/nfl-assets/img/gbl-ico-team/CIN/logos/home/large.png" height="100" width="100"/>
+                                    </button>
+                        </ul>
+                        <ul class=" btn-group btn-group-md"> AFC South
+                            <button type="button" class="teamBtn btn-md" id="jacksonville" data-dismiss="modal">
+                                            <img src="http://prod.static.jaguars.clubs.nfl.com/nfl-assets/img/gbl-ico-team/JAX/logos/home/large.png" height="100" width="100"/>
+                                    </button>
+                            <button type="button" class="teamBtn btn-md" id="tennessee" data-dismiss="modal">
+                                            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/c1/Tennessee_Titans_logo.svg/1280px-Tennessee_Titans_logo.svg.png" height="100" width="100"/>
+                                    </button>
+                            <button type="button" class="teamBtn btn-md" id="houston" data-dismiss="modal">
+                                            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/2/28/Houston_Texans_logo.svg/1118px-Houston_Texans_logo.svg.png" height="100" width="100"/>
+                                    </button>
+                            <button type="button" class="teamBtn btn-md" id="indianapolis" data-dismiss="modal">
+                                            <img src="http://prod.static.colts.clubs.nfl.com/nfl-assets/img/gbl-ico-team/IND/logos/home/large.png" height="100" width="100"/>
+                                    </button>
+                        </ul>
+                        <ul class=" btn-group btn-group-md"> AFC West
+                            <button type="button" class="teamBtn btn-md" id="denver" data-dismiss="modal">
+                                            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/4/44/Denver_Broncos_logo.svg/1024px-Denver_Broncos_logo.svg.png" height="100" width="100"/>
+                                    </button>
+                            <button type="button" class="teamBtn btn-md" id="oakland" data-dismiss="modal">
+                                            <img src="http://prod.static.raiders.clubs.nfl.com/nfl-assets/img/gbl-ico-team/OAK/logos/home/large.png" height="100" width="100"/>
+                                    </button>
+                            <button type="button" class="teamBtn btn-md" id="kansasCity" data-dismiss="modal">
+                                            <img src="http://content.sportslogos.net/logos/7/162/full/857.png" height="100" width="100"/>
+                                    </button>
+                            <button type="button" class="teamBtn btn-md" id="losAngelesChargers" data-dismiss="modal">
+                                            <img src="https://pmcdeadline2.files.wordpress.com/2016/01/chargers-logo-300x158.jpg" height="100" width="100"/>
+                                    </button>
+                        </ul>
+                        <ul class=" btn-group btn-group-md"> NFC North
+                            <button type="button" class="teamBtn btn-md" id="minnesota" data-dismiss="modal">
+                                            <img src="http://content.sportslogos.net/logos/7/172/full/885.gif" height="100" width="100"/>
+                                    </button>
+                            <button type="button" class="teamBtn btn-md" id="detroit" data-dismiss="modal">
+                                            <img src="https://www.printyourbrackets.com/nfl-logos/detroit-lions-logo.png" height="100" width="100"/>
+                                    </button>
+                            <button type="button" class="teamBtn btn-md" id="greenBay" data-dismiss="modal">
+                                            <img src="http://freevectorlogo.net/wp-content/uploads/2012/12/green-bay-packers-logo-vector.png" height="100" width="100"/>
+                                    </button>
+                            <button type="button" class="teamBtn btn-md" id="chicago" data-dismiss="modal">
+                                            <img src="http://content.sportslogos.net/logos/7/169/full/364.png" height="100" width="100"/>
+                                    </button>
+                        </ul>
+                        <ul class=" btn-group btn-group-md"> NFC West
+                            <button type="button" class="teamBtn btn-md" id="losAngelesRams" data-dismiss="modal">
+                                            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/8/8b/NFL_Rams_logo.svg/1280px-NFL_Rams_logo.svg.png" height="100" width="100"/>
+                                    </button>
+                            <button type="button" class="teamBtn btn-md" id="seattle" data-dismiss="modal">
+                                            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/8/8e/Seattle_Seahawks_logo.svg/1280px-Seattle_Seahawks_logo.svg.png" height="100" width="100"/>
+                                    </button>
+                            <button type="button" class="teamBtn btn-md" id="arizona" data-dismiss="modal">
+                                            <img src="http://prod.static.cardinals.clubs.nfl.com/nfl-assets/img/gbl-ico-team/ARI/logos/home/large.png" height="100" width="100"/>
+                                    </button>
+                            <button type="button" class="teamBtn btn-md" id="sanFrancisco" data-dismiss="modal">
+                                            <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/San_Francisco_49ers_logo.svg" height="100" width="100"/>
+                                    </button>
+                        </ul>
+                    </ul>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-success btn-block" id="btnAccept" data-dismiss="modal"><span class="glyphicon glyphicon-off"></span>Let's do this</button>
@@ -165,18 +282,27 @@
         var clickCount = 0;
         var o_win = 0;
         var x_win = 0;
+
         $('#scoreReset').click(function () {
             $("#winModal").modal('show');
             $("#winText").hide();
         });
         $(window).on('load', function () {
             $('#nameModal').modal('show');
-            $('nameModal').modal({backdrop: "static"});
-            
+            $('#nameModal').scrollspy({ target: ".nameModal" })
         });
-              
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+        $('#jumbotron.top').ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+        $(document).ready(function () {
+            $('[data-toggle="popover"]').popover({ html: true, trigger: "focus" });
+        });
+
         $('#btnReset').click(function () {
-            $('div.col-tictactoe button').removeClass('btn-primary btn-warning disabled').addClass('btn-default').html("");
+            $('div.col-tictactoe button').removeClass('disabled btn-primary btn-warning teamBtn').addClass('btn-default').html("");
             $("#winText").hide();
             $("#winModal").modal('hide');
             clickCount = 0;
@@ -212,16 +338,16 @@
                 if (winner == 'X') {
                     x_win++;
                     $('#x_win b').html(x_win);
-                    $('#x_win strong').html($(innerHTML='#1name'));
-                    $('#o_win strong').html($(innerHTML='#2name'));
+                    $('#x_win strong').html($('#1name'));
+                    $('#o_win strong').html($('#2name'));
                 }
                 else if (winner == 'O') {
                     o_win++;
                     $('#o_win b').html(o_win);
-                    $('#o_win strong').html($('#2name'));  
+                    $('#o_win strong').html($('#2name'));
                     $('#x_win strong').html($('#1name'));
 
-                           }
+                }
 
             }
             clickCount++;
@@ -234,18 +360,18 @@
 
 
         });
-       /* function playerName() {
-            var player1, player2;
-            player1 = (document.getElementById("1name").innerHTML);
-            player2 = (document.getElementById("2name").innerHTML);
-            if (player1 == string) {
-                player1 == ('#1name');
-                }
-                else{
-                    placeholder = "Not a valid entry";
-                    
-                }
-            } */
+        /* function playerName() {
+             var player1, player2;
+             player1 = (document.getElementById("1name").innerHTML);
+             player2 = (document.getElementById("2name").innerHTML);
+             if (player1 == string) {
+                 player1 == ('#1name');
+                 }
+                 else{
+                     placeholder = "Not a valid entry";
+                     
+                 }
+             } */
         function getWinner() {
             var btns = $('div.col-tictactoe button');
             for (var i = 0; i < 6; i++) {
@@ -274,9 +400,13 @@
 </body>
 <footer>
     <details>
-        <summary style="color:dimgray;"> Made By:  Craig B. Sept. 2017</summary>
-        <p> -- For use in learning Javascript.</p>
-        <p> ---Anyone who copies this is probably out of other options. </p>
+        <summary style="color:white;"> Made By: <a hre="#" data-toggle="tooltip" title="Yes, the real Craig.">Craig B. Sept. 2017</a></summary>
+        <p style="color:white;"> -- For use in <a href="#" title="<a href='http://developerlevel.com/'target='_blank'>DeveloperLevel.com</a>" data-toggle="popover"
+                animation="true" data-content="<a href='http://paladinarcher.com/v1/'target='_blank'>Paladin&Archer</a>">learning
+            Javascript.
+            </a><br></p>
+        <p style="color:white;"> ---Anyone who copies this has probably run out of options. </p>
     </details>
 </footer>
-</html
+
+</html>
