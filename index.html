@@ -1,7 +1,7 @@
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -11,168 +11,292 @@
     <title>Developer Level Project: Tic Tac Toe</title>
 
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
+        crossorigin="anonymous">
     <link href="css/bootstrap.theme.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="css/tictactoe.css" rel="stylesheet">
-  </head>
+</head>
 
-  <body>
+<body>
 
     <div class="container">
 
-      <!-- Jumbotron -->
-      <div class="jumbotron top">
-        <h1>Tic Tac Toe! <small>Welcome to the Developer Level Tic Tac Toe Challenge!</small></h1>
-        <p class="lead">You will be using this rough page layout to build a functional Tic Tac Toe game entirely in javascript. You don't have to keep any of this page, but since the assignment focusses on the javascript implementation, the layout has been created for you so you can focus on the functionality.</p>
-      </div>
+        <!-- Jumbotron -->
+        <div class="jumbotron top">
+            <!--<span class="white_bg"><h1>Tic Tac Toe!</span> <small>Welcome to the Developer Level Tic Tac Toe Challenge!</small></h1>
+            <span class="white_bg"><p class="lead">You will be using this rough page layout to build a functional Tic Tac Toe game entirely in javascript. You don't
+                have to keep any of this page, but since the assignment focuses on the javascript implementation, the layout
+                has been created for you so you can focus on the functionality.</p></span> -->
+        </div>
+        <div class="modal fade" id="figModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title text-center">Tic Tac Toe Game</h4>
+                    </div>
+                    <div class="modal-body">
+                        <h3>Welcome to the Tic Tac Toe Game!</h3>
+                        <p>It’s time to choose your figure.</p>
+                        <p id="test"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="x" class="btn" data-dismiss="modal" onClick="setFig(this.id)"><span class="fa fa-times"><span></button>
+                        <button type="button" id="o" class="btn" data-dismiss="modal" onClick="setFig(this.id)"><span class="fa fa-circle-o"><span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Trigger/Open The Modal -->
+        <button id="modalbtnReset">Reset</button>
 
-      <!-- Tic Tac Toe Board -->
-      <div class="row">
-        <div class="col col-tictactoe">
-            <button type="button" class="btn btn-default btn-block btn-tictactoe"></button>
-        </div>
-        <div class="col col-tictactoe">
-            <button type="button" class="btn btn-default btn-block btn-tictactoe"></button>
-        </div>
-        <div class="col col-tictactoe right">
-            <button type="button" class="btn btn-default btn-block btn-tictactoe"></button>
-        </div>
-        <div class="w-100"></div>
-        <div class="col col-tictactoe">
-            <button type="button" class="btn btn-default btn-block btn-tictactoe"></button>
-        </div>
-        <div class="col col-tictactoe">
-            <button type="button" class="btn btn-default btn-block btn-tictactoe"></button>
-        </div>
-        <div class="col col-tictactoe right">
-            <button type="button" class="btn btn-default btn-block btn-tictactoe"></button>
-        </div>
-        <div class="w-100"></div>
-        <div class="col col-tictactoe bottom">
-            <button type="button" class="btn btn-default btn-block btn-tictactoe"></button>
-        </div>
-        <div class="col col-tictactoe bottom">
-            <button type="button" class="btn btn-default btn-block btn-tictactoe"></button>
-        </div>
-        <div class="col col-tictactoe bottom right">
-            <button type="button" class="btn btn-default btn-block btn-tictactoe"></button>
-        </div>
-      </div>
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
 
-    </div> <!-- /container -->
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>Play the game first!</p>
+            </div>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Some text in the modal.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+        <!-- Tic Tac Toe Board -->
+        <div class="row">
+            <div class="col col-tictactoe">
+                <button type="button" class="btn btn-default btn-block btn-tictactoe" data-index='0' id="0"></button>
+            </div>
+            <div class="col col-tictactoe">
+                <button type="button" class="btn btn-default btn-block btn-tictactoe" data-index='1' id="1"></button>
+            </div>
+            <div class="col col-tictactoe right">
+                <button type="button" class="btn btn-default btn-block btn-tictactoe" data-index='2' id="2"></button>
+            </div>
+            <div class="w-100"></div>
+            <div class="col col-tictactoe">
+                <button type="button" class="btn btn-default btn-block btn-tictactoe" data-index='3' id="3"></button>
+            </div>
+            <div class="col col-tictactoe">
+                <button type="button" class="btn btn-default btn-block btn-tictactoe" data-index='4' id="4"></button>
+            </div>
+            <div class="col col-tictactoe right">
+                <button type="button" class="btn btn-default btn-block btn-tictactoe" data-index='5' id="5"></button>
+            </div>
+            <div class="w-100"></div>
+            <div class="col col-tictactoe bottom">
+                <button type="button" class="btn btn-default btn-block btn-tictactoe" data-index='6' id="6"></button>
+            </div>
+            <div class="col col-tictactoe bottom">
+                <button type="button" class="btn btn-default btn-block btn-tictactoe" data-index='7' id="7"></button>
+            </div>
+            <div class="col col-tictactoe bottom right">
+                <button type="button" class="btn btn-default btn-block btn-tictactoe" data-index='8' id="8"></button>
+            </div>
+        </div>
+
+        <!-- /container -->
 
 
-    <!-- Bootstrap core JavaScript
+        <!-- Bootstrap core JavaScript
     ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.2.1.min.js"><\/script>')</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-    <script>window.Popper || document.write('<script src="js/vendor/popper.min.js"><\/script>')</script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
-    <script>if((typeof $().modal != 'function')) { document.write('<script src="js/vendor/bootstrap.min.js"><\/script>'); }</script>
-    <script>
-        var clickCount = 0;
-        $('div.col-tictactoe button').click(function (event) {
-            console.log(this, event);
-            //if($(this).html() != "") { return; }
-            if(!$(this).hasClass('btn-default')) { return; }
-            if(clickCount % 2 == 0) {
-                $(this).removeClass('btn-default').addClass('btn-success').html("X");
-                console.log("Player one");
-            } else {
-                $(this).removeClass('btn-default').addClass('btn-danger').html("O");
-                console.log("Player two");
-            }
-            if(clickCount >= 4) {
-                var winner = getWinner();
-                if(winner) {
-                    alert(winner+" won!");
-                    $('div.col-tictactoe button')
-                        .removeClass('btn-success btn-danger')
-                        .addClass('btn-default')
-                        .html("");
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
+        <script>
+            window.jQuery || document.write('<script src="js/vendor/jquery-3.2.1.min.js"><\/script>')
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+            crossorigin="anonymous"></script>
+        <script>
+            window.Popper || document.write('<script src="js/vendor/popper.min.js"><\/script>')
+        </script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
+            crossorigin="anonymous"></script>
+        <script>
+            if ((typeof $().modal != 'function')) { document.write('<script src="js/vendor/bootstrap.min.js"><\/script>'); }
+        </script>
+        <script>
+            var Square = function (value, isTaken, ownedBy) {
+                this.value = value;
+                this.isTaken = false;
+                this.ownedBy = ownedBy;
+                this.getValue = function () {
+                    return this.value;
+                }
+                this.setTaken = function () {
+                    this.isTaken = true;
+                }
+                this.isOwnedBy = function () {
+                    this.ownedBy = newGame.currentPlayer.name;
+                }
+                this.resetOwner = function () {
+                    this.ownedBy = "";
+                }
+                this.setEmpty = function () {
+                    this.isTaken = false;
+                }
+                this.isEmpty = function () {
+                    return !this.isTaken;
                 }
             }
-            clickCount++;
-        });
-        function getWinner() {
-            var btns = $('div.col-tictactoe button');
-            // [
-                // 0 = btn 1,
-                // 1 = btn 2,
-                // 2 = btn 3,
-                // 3 = btn 4,
-                // 4 = btn 5,
-                // 5 = btn 6,
-                // 6 = btn 7,
-                // 7 = btn 8,
-                // 8 = btn 9
-            //] btns[2]
-            var wins = [
-                [0, 1, 2], //0
-                [0, 4, 8], //1
-                [0, 3, 6], //2
 
-                [0, 1, 2], //3
-                [1, 4, 7], //4
+            var Board = function () {
+                var squares = new Array(),
+                    SIZE = 3;
+                this.getSquares = function () {
+                    return squares;
+                };
+                this.addSquares = function () {
+                    for (var i = 0; i < 9; i++) {
+                        squares[i] = new Square(Math.pow(2, i));
+                    }
+                };
+                this.addSquares();
+                this.setSquareTaken = function (squareIndex) {
+                    squares[squareIndex].setTaken();
+                };
+                this.setOwnedBy = function (squareIndex) {
+                    squares[squareIndex].isOwnedBy();
+                }
 
-                [0, 1, 2], //5
-                [2, 5, 8], //6
-                [2, 4, 6], //7
+                this.getValue = function (squareIndex) {
+                    return squares[squareIndex].value;
+                };
+                this.isSquareEmpty = function (squareIndex) {
+                    return squares[squareIndex].isEmpty();
+                };
+                this.isAllFilledIn = function () {
+                    for (var i = 0; i < 9; i++) {
+                        if (squares[i].isTaken === true) {
+                            continue;
+                        } else {
+                            return false;
+                        }
+                    };
+                    return true;
+                };
+                this.resetSquares = function () {
+                    for (var i = 0; i < squares.length; i++) {
+                        squares[i].setEmpty();
+                    };
+                    return true;
+                }
+                this.resetOwnedBy = function () {
+                    for (var i = 0; i < squares.length; i++) {
+                        squares[i].resetOwner();
+                    }
+                }
+            };
 
-                [0, 3, 6], //8
-                [3, 4, 5], //9
 
-                [0, 4, 8], //10
-                [1, 4, 7], //11
-                [2, 4, 6],
-                [3, 4, 5],
+            //boardValues
+            //[1,  2,   4],
+            //[8,  16,  32],
+            //[64, 128, 256];
 
-                [2, 5, 8],
-                [3, 4, 5],
+            var Player = function (name, symbol, score, isWinner) {
+                this.name = name;
+                this.symbol = symbol;
+                this.getSymbol = function () {
+                    return this.symbol;
+                };
+                this.score = score;
+                this.getScore = function () {
+                    return this.score;
+                };
+                this.updateScore = function (points) {
+                    this.score += points;
+                };
+                this.resetScore = function () {
+                    this.score = 0;
+                };
+                this.isWinner = function () {
+                    for (var i = 0; i < winConditions.length; i += 1) {
+                        if ((winConditions[i] & this.score) === winConditions[i]) {
+                            return true;
+                        }
+                    }
+                };
 
-                [0, 3, 6],
-                [2, 4, 6],
-                [6, 7, 8],
-
-                [6, 7, 8],
-                [1, 4, 7],
-
-                [6, 7, 8],
-                [0, 4, 8],
-                [2, 5, 8]
-            ];
-
-            // You can't use the forEach here, since it uses a function
-            // and we need to return the value found. 
-            // Using another loop, get this function to work properly.
-
-            for (var i = 0; i < wins.length; i++) {
-                var set = wins[i];
-                // set = [0, 1, 2]
-                var offsetForButton1 = set[0];
-                var btn1 = btns[offsetForButton1];
-
-                var offsetForButton2 = set[1];
-                var btn2 = btns[offsetForButton2];
-
-                var offsetForButton3 = set[2];
-                var btn3 = btns[offsetForButton3];
-
-                if($(btn1).hasClass('btn-default')) { continue; }
-
-                var me = $(btn1).html();
-                if(me != $(btn2).html()) { continue; }
-                if(me != $(btn3).html()) { continue; }
-                return me;
+                winConditions = [7, 56, 448, 73, 146, 292, 273, 84];
             }
-            return false;
-            
-            //if(btn[0].hasClass('btn-success') && btn[1].hasClass('btn-success') && btn[2].hasClass('btn-success')) { return "X"; }
-        }
-    </script>
-  </body>
+
+            var Game = function () {
+                this.Washington = new Player("Washington", "X", 0, false);
+                this.Redskins = new Player("Redskins", "O", 0, false);
+                this.currentPlayer = this.Washington;
+                this.theBoard = new Board();
+                this.switchPlayer = function () {   //toggle player turns
+                    this.currentPlayer = this.currentPlayer.name === this.Washington.name ? this.Redskins : this.Washington;
+                };
+                var self = this;
+                $('div.col-tictactoe button').click(function () {
+                    this;
+                    $(this).attr('id');
+                    lastMove = parseInt(this["id"])
+                    var index = $(this).data('index');
+                    if (!$(this).hasClass('btn-default')) { return; }
+                    if (self.currentPlayer.name == self.Washington.name) {
+                        $(this).removeClass('btn-default').addClass('btn-themeB').html("Washington");
+                    } else {
+                        $(this).removeClass('btn-default').addClass('btn-themeG').html("Redskins");
+                    };
+                    self.currentPlayer.updateScore(self.theBoard.getValue(index));
+                    console.log(self.currentPlayer.name + " now has a total score of " + self.currentPlayer.getScore());
+                    self.theBoard.setSquareTaken(index);
+                    console.log(self.theBoard.getSquares());
+                    self.theBoard.setOwnedBy(index);
+                    if (self.currentPlayer.isWinner() == true) {
+                        setTimeout(function () { alert(self.currentPlayer.name + " wins!"); }, 250);
+                        console.log(self.currentPlayer.name + " wins!");
+                        self.gameEnded = true;
+                    } else {
+                        if (self.theBoard.isAllFilledIn() === true) {
+                            setTimeout(function () { alert("Draw - no one wins!"); }, 500);
+                            console.log("Draw - no one wins");
+                        }
+                        else {
+                            console.log("No winner yet");
+                        }
+                    }
+                    self.switchPlayer();
+                    console.log("Player changed to " + self.currentPlayer.name);
+                });
+            }
+                var Reset = $('#modalbtnReset')
+                $('#modalbtnReset').click(function () {
+                    $('div.col-tictactoe button')
+                        .removeClass('btn-themeG btn-themeB')
+                        .addClass('btn-default')
+                        .html("");
+                    newGame.theBoard.resetSquares();
+                    newGame.theBoard.resetOwnedBy();
+                    newGame.Washington.resetScore();
+                    newGame.Redskins.resetScore();
+                    xMoves = [];
+                    oMoves = [];
+                    newGame.clickCount = 0;
+                    console.log(newGame.theBoard.getSquares());
+                });
+
+                $(document).ready(function () {
+                    newGame = new Game();
+                })
+                var xMoves = [];
+                var oMoves = [];
+        </script>
+</body>
+
 </html>
